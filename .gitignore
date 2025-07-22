@@ -1,0 +1,49 @@
+# =============== #
+# Unity generated #
+# =============== #
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+MemoryCaptures/
+
+# ================= #
+# Visual Studio / VSCode #
+# ================= #
+.vs/
+.vscode/
+*.csproj
+*.sln
+*.user
+*.unityproj
+
+# ================= #
+# OS generated #
+# ================= #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ================= #
+# Other #
+# ================= #
+*.apk
+*.aab
+*.unitypackage
+*.swp
+*.pidb
+*.suo
+*.tmp
+*.userprefs
+
+# Keep only important project files
+!Assets/
+!ProjectSettings/
+!Packages/
+
