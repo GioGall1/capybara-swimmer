@@ -86,6 +86,9 @@ public class CapybaraController : MonoBehaviour
         {
             hasSpawnedSwimCapybara = true;
             Invoke(nameof(SpawnSwimmingCapybara), 2f); // ⏳ через 2 секунды спавним анимированную
+            CameraFollow camFollow = FindObjectOfType<CameraFollow>(); // Добавление динамичной камеры
+            camFollow.EnableFollow();
+            camFollow.SetOffset(new Vector3(0f, 0f, -10f)); // Центрируе
         }
     }
 

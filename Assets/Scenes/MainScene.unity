@@ -1533,7 +1533,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1988640221}
   - component: {fileID: 1988640220}
-  - component: {fileID: 1988640222}
   - component: {fileID: 1988640223}
   - component: {fileID: 1988640226}
   - component: {fileID: 1988640229}
@@ -1615,23 +1614,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1988640222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1988640219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa29b13fc349f4d02a73d065228b283b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minJumpForce: 10
-  maxJumpForce: 15
-  chargeTime: 2
-  maxSpeed: 50
-  swimCapybaraPrefab: {fileID: 0}
 --- !u!50 &1988640223
 Rigidbody2D:
   serializedVersion: 4
@@ -1736,10 +1718,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa29b13fc349f4d02a73d065228b283b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minJumpForce: 10
+  minJumpForce: 15
   maxJumpForce: 20
   chargeTime: 1.5
-  maxSpeed: 10
+  maxSpeed: 40
   swimCapybaraPrefab: {fileID: 5310057382321769677, guid: 98d60c44eb78d40a9a15f6ad47bc43d8, type: 3}
 --- !u!114 &1988640233
 MonoBehaviour:
