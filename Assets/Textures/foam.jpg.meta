@@ -45,10 +45,3 @@ TextureImporter:
     sprites: []
   spritePackingTag: 
   userData: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 34353
-  packageName: Simple Buoyancy Physics
-  packageVersion: 1.0
-  assetPath: Assets/Buoyancy physics/Textures/foam.jpg
-  uploadId: 62178

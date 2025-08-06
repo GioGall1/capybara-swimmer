@@ -10,10 +10,3 @@ MonoImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 34353
-  packageName: Simple Buoyancy Physics
-  packageVersion: 1.0
-  assetPath: Assets/Buoyancy physics/Scripts/DemoScripts/SceneManager.cs
-  uploadId: 62178

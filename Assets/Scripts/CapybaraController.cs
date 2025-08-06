@@ -83,12 +83,14 @@ public class CapybaraController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Water") && !hasSpawnedSwimCapybara)
-        {
+        {   
             hasSpawnedSwimCapybara = true;
-            Invoke(nameof(SpawnSwimmingCapybara), 2f); // ⏳ через 2 секунды спавним анимированную
+            //КАМЕРА
             CameraFollow camFollow = FindObjectOfType<CameraFollow>(); // Добавление динамичной камеры
             camFollow.EnableFollow();
             camFollow.SetOffset(new Vector3(0f, 0f, -10f)); // Центрируе
+            //АНИМАЦИЯ
+            Invoke(nameof(SpawnSwimmingCapybara), 2f); // ⏳ через 2 секунды спавним анимированную
         }
     }
 
