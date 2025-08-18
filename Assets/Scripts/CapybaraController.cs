@@ -102,6 +102,8 @@ public class CapybaraController : MonoBehaviour
             transform.position,
             Quaternion.identity
         );
+        
+        FindObjectOfType<BreathingManager>().StartBreathing();
 
         // ✅ Включаем управление через 0.1 секунды (на всякий случай, чтобы всё прогрузилось)
         swimmingCapybara
