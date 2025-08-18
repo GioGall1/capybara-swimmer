@@ -88,7 +88,7 @@ public class CapybaraController : MonoBehaviour
             //КАМЕРА
             CameraFollow camFollow = FindObjectOfType<CameraFollow>(); // Добавление динамичной камеры
             camFollow.EnableFollow();
-            camFollow.SetOffset(new Vector3(0f, 0f, -10f)); // Центрируе
+            camFollow.SetOffset(new Vector3(0f, -8f, -10f)); // Центрируе
             //АНИМАЦИЯ
             Invoke(nameof(SpawnSwimmingCapybara), 2f); // ⏳ через 2 секунды спавним анимированную
         }
