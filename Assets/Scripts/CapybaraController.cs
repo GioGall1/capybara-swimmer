@@ -24,7 +24,7 @@ public class CapybaraController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<CapybaraAnimationController>();
 
-        rb.gravityScale = 0f;
+     
         rb.drag = 0.5f;
         rb.angularDrag = 0.3f;
         rb.centerOfMass = new Vector2(0f, -0.7f);

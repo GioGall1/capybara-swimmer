@@ -45,3 +45,6 @@ TagManager:
   - name: SortingTexture
     uniqueID: 130842403
     locked: 0
+  - name: UIOverlay
+    uniqueID: 3090331051
+    locked: 0
