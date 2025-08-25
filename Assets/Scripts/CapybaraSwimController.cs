@@ -14,6 +14,7 @@ public class CapybaraSwimController : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 moveDirection;
     private Coroutine boostCoroutine;
+    private Animator anim;
 
 
 
@@ -23,6 +24,7 @@ public class CapybaraSwimController : MonoBehaviour
         rb.gravityScale = 1.2f;
         // originalVerticalSpeed = verticalSpeed;
         this.enabled = false; // ❌ по умолчанию управление выключено
+        anim = GetComponent<Animator>();
     }
 
     // ✅ Метод для включения управления с задержкой
@@ -83,8 +85,13 @@ public class CapybaraSwimController : MonoBehaviour
     public void ApplyCoconutBoost()
 {
     Debug.Log("🐹 Вызван ApplyCoconutBoost!");
+    
+    anim.SetTrigger("Boost"); // 💥 Включаем анимацию ускорения
+
     if (boostCoroutine != null)
-        StopCoroutine(boostCoroutine);
+            StopCoroutine(boostCoroutine);
+
+    anim.SetBool("isBoosting", true); // ✅ запускаем анимацию
 
     boostCoroutine = StartCoroutine(BoostVerticalSpeed());
 }
@@ -98,6 +105,9 @@ private IEnumerator BoostVerticalSpeed()
     yield return new WaitForSeconds(boostDuration);
 
     verticalSpeed = original;
+
+    anim.SetBool("isBoosting", false); // ✅ возвращаем анимацию обратно
+    
     Debug.Log("🧘 Кокос эффект закончился, вертикальная скорость возвращена: " + verticalSpeed);
 }
 }
