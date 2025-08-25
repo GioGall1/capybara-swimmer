@@ -83,14 +83,20 @@ public class CapybaraController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Water") && !hasSpawnedSwimCapybara)
-        {   
+        {
             hasSpawnedSwimCapybara = true;
+
             //КАМЕРА
             CameraFollow camFollow = FindObjectOfType<CameraFollow>(); // Добавление динамичной камеры
             camFollow.EnableFollow();
             camFollow.SetOffset(new Vector3(0f, -8f, -10f)); // Центрируе
-            //АНИМАЦИЯ
+             //АНИМАЦИЯ
             Invoke(nameof(SpawnSwimmingCapybara), 2f); // ⏳ через 2 секунды спавним анимированную
+             //ДЫХАНИЕ
+            if (BreathingManager.Instance != null)
+                {
+                    BreathingManager.Instance.StartBreathing();
+                }
         }
     }
 
@@ -102,19 +108,29 @@ public class CapybaraController : MonoBehaviour
             transform.position,
             Quaternion.identity
         );
-        
-        FindObjectOfType<BreathingManager>().StartBreathing();
 
-        // ✅ Включаем управление через 0.1 секунды (на всякий случай, чтобы всё прогрузилось)
-        swimmingCapybara
-            .GetComponent<CapybaraSwimController>()
-            .ActivateAfterDelay(0.1f);
+        // ✅ Запускаем дыхание (если на prefab'е стоит BreathingTrigger)
+        var breathManager = BreathingManager.Instance;
+        if (breathManager != null)
+        {
+            breathManager.StartBreathing();
+        }
 
-             // ✅ Меняем таргет камеры на анимированную капибару
-    Camera.main.GetComponent<CameraFollow>().SetTarget(swimmingCapybara.transform);
+        // ✅ Включаем управление через 0.1 секунды
+        var swimController = swimmingCapybara.GetComponent<CapybaraSwimController>();
+        if (swimController != null)
+        {
+            swimController.ActivateAfterDelay(0.1f);
+        }
 
+        // ✅ Меняем таргет камеры на новую капибару
+        var cameraFollow = Camera.main.GetComponent<CameraFollow>();
+        if (cameraFollow != null)
+        {
+            cameraFollow.SetTarget(swimmingCapybara.transform);
+        }
 
-        // ❌ Отключаем старую сушевую капибару
-        gameObject.SetActive(false);
+        // 💥 Удаляем старую "сухую" капибару
+        Destroy(gameObject);
     }
 }
