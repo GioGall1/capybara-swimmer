@@ -8,12 +8,14 @@ public class CapybaraSwimController : MonoBehaviour
     public float verticalSpeed = 1.5f;
     public float rotationFixSpeed = 8f; // ✅ скорость фиксации поворота
     public float boostedVerticalSpeed = 10f;   // 🥥 ускорение от кокоса
-    public float boostDuration = 5f;          // ⏱️ сколько длится
+    public float boostDuration = 5f;          // ⏱️ сколько длится ускорение
     public float coconutBoostForce = 10f;
     public GameObject bubblePrefab;
     public Transform mouthPoint;
     public float bubbleSpawnIntervalMin = 1.5f;
     public float bubbleSpawnIntervalMax = 4f;
+    public int boostBubbleCount = 10;
+    public float bubbleSpread = 0.5f;   
 
     private Rigidbody2D rb;
     private Vector2 moveDirection;
@@ -103,6 +105,8 @@ public class CapybaraSwimController : MonoBehaviour
         Debug.Log("🐹 Вызван ApplyCoconutBoost!");
 
         anim.SetTrigger("Boost"); // 💥 Включаем анимацию ускорения
+        
+        ApplyBoostBubbles();
 
         if (boostCoroutine != null)
             StopCoroutine(boostCoroutine);
@@ -111,19 +115,37 @@ public class CapybaraSwimController : MonoBehaviour
 
         boostCoroutine = StartCoroutine(BoostVerticalSpeed());
     }
+    
+    private void ApplyBoostBubbles()
+{
+    for (int i = 0; i < boostBubbleCount; i++)
+    {
+        Vector3 offset = new Vector3(Random.Range(-bubbleSpread, bubbleSpread), 0f, 0f);
+        GameObject bubble = Instantiate(bubblePrefab, mouthPoint.position + offset, Quaternion.identity);
+        
+        Rigidbody2D rb = bubble.GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            float forceY = Random.Range(2f, 4f);
+            rb.velocity = new Vector2(0f, forceY); // всплытие
+        }
+
+        Destroy(bubble, 2f); // пузырь исчезает через 2 секунды
+    }
+}
 
 private IEnumerator BoostVerticalSpeed()
-{
-    float original = verticalSpeed;
-    verticalSpeed = boostedVerticalSpeed;
-    Debug.Log("🥥 Кокос: вертикальная скорость увеличена до " + verticalSpeed);
+    {
+        float original = verticalSpeed;
+        verticalSpeed = boostedVerticalSpeed;
+        Debug.Log("🥥 Кокос: вертикальная скорость увеличена до " + verticalSpeed);
 
-    yield return new WaitForSeconds(boostDuration);
+        yield return new WaitForSeconds(boostDuration);
 
-    verticalSpeed = original;
+        verticalSpeed = original;
 
-    anim.SetBool("isBoosting", false); // ✅ возвращаем анимацию обратно
+        anim.SetBool("isBoosting", false); // ✅ возвращаем анимацию обратно
 
-    Debug.Log("🧘 Кокос эффект закончился, вертикальная скорость возвращена: " + verticalSpeed);
-}
+        Debug.Log("🧘 Кокос эффект закончился, вертикальная скорость возвращена: " + verticalSpeed);
+    }
 }
