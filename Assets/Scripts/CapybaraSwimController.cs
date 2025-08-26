@@ -10,11 +10,16 @@ public class CapybaraSwimController : MonoBehaviour
     public float boostedVerticalSpeed = 10f;   // 🥥 ускорение от кокоса
     public float boostDuration = 5f;          // ⏱️ сколько длится
     public float coconutBoostForce = 10f;
+    public GameObject bubblePrefab;
+    public Transform mouthPoint;
+    public float bubbleSpawnIntervalMin = 1.5f;
+    public float bubbleSpawnIntervalMax = 4f;
 
     private Rigidbody2D rb;
     private Vector2 moveDirection;
     private Coroutine boostCoroutine;
     private Animator anim;
+    private float nextBubbleTime = 0f;
 
 
 
@@ -60,6 +65,12 @@ public class CapybaraSwimController : MonoBehaviour
 
         // движение вниз (всегда) + влево/вправо (если надо)
         moveDirection = new Vector2(horizontal * moveSpeed, -verticalSpeed);
+
+        if (Time.time >= nextBubbleTime)
+    {
+        SpawnBubble();
+        nextBubbleTime = Time.time + Random.Range(bubbleSpawnIntervalMin, bubbleSpawnIntervalMax);
+    }
     }
 
     void FixedUpdate()
@@ -81,20 +92,25 @@ public class CapybaraSwimController : MonoBehaviour
         transform.localScale = scale;
     }
     
+    void SpawnBubble()
+    {
+        Instantiate(bubblePrefab, mouthPoint.position, Quaternion.identity);
+    }
+    
 
     public void ApplyCoconutBoost()
-{
-    Debug.Log("🐹 Вызван ApplyCoconutBoost!");
-    
-    anim.SetTrigger("Boost"); // 💥 Включаем анимацию ускорения
+    {
+        Debug.Log("🐹 Вызван ApplyCoconutBoost!");
 
-    if (boostCoroutine != null)
+        anim.SetTrigger("Boost"); // 💥 Включаем анимацию ускорения
+
+        if (boostCoroutine != null)
             StopCoroutine(boostCoroutine);
 
-    anim.SetBool("isBoosting", true); // ✅ запускаем анимацию
+        anim.SetBool("isBoosting", true); // ✅ запускаем анимацию
 
-    boostCoroutine = StartCoroutine(BoostVerticalSpeed());
-}
+        boostCoroutine = StartCoroutine(BoostVerticalSpeed());
+    }
 
 private IEnumerator BoostVerticalSpeed()
 {
@@ -107,7 +123,7 @@ private IEnumerator BoostVerticalSpeed()
     verticalSpeed = original;
 
     anim.SetBool("isBoosting", false); // ✅ возвращаем анимацию обратно
-    
+
     Debug.Log("🧘 Кокос эффект закончился, вертикальная скорость возвращена: " + verticalSpeed);
 }
 }
