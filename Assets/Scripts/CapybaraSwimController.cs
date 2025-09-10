@@ -22,6 +22,7 @@ public class CapybaraSwimController : MonoBehaviour
     private Coroutine boostCoroutine;
     private Animator anim;
     private float nextBubbleTime = 0f;
+    private float originalVerticalSpeed;
 
 
 
@@ -30,8 +31,11 @@ public class CapybaraSwimController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 1.2f;
         // originalVerticalSpeed = verticalSpeed;
-        this.enabled = false; // ❌ по умолчанию управление выключено
         anim = GetComponent<Animator>();
+        this.enabled = false; // ❌ по умолчанию управление выключено
+        
+        originalVerticalSpeed = verticalSpeed; // 🧠 запоминаем изначальную скорость
+        
     }
 
     // ✅ Метод для включения управления с задержкой
@@ -107,7 +111,11 @@ public class CapybaraSwimController : MonoBehaviour
         ApplyBoostBubbles();
 
         if (boostCoroutine != null)
+        {
             StopCoroutine(boostCoroutine);
+            verticalSpeed = originalVerticalSpeed;         // 🧼 сбрасываем прошлое ускорение
+            anim.SetBool("isBoosting", false);             // ⛔ сброс прошлой анимации
+        }
 
         anim.SetBool("isBoosting", true); // ✅ запускаем анимацию
 
