@@ -10,7 +10,7 @@ public class CapybaraController : MonoBehaviour
     public float maxSpeed = 6f;
 
     [Header("Анимированная капибара")]
-    public GameObject swimCapybaraPrefab; // Твой перфаб KapiNEWPNG_0
+    public GameObject swimCapybaraPrefab; //перфаб KapiNEWPNG_0
 
     private Rigidbody2D rb;
     private CapybaraAnimationController anim;
@@ -91,7 +91,7 @@ public class CapybaraController : MonoBehaviour
             camFollow.EnableFollow();
             camFollow.SetOffset(new Vector3(0f, -8f, -10f)); // Центрируе
              //АНИМАЦИЯ
-            Invoke(nameof(SpawnSwimmingCapybara), 2f); // ⏳ через 2 секунды спавним анимированную
+            Invoke(nameof(SpawnSwimmingCapybara), 1f); // ⏳ через 2 секунды спавним анимированную
              //ДЫХАНИЕ
             if (BreathingManager.Instance != null)
                 {

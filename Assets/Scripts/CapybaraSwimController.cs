@@ -80,8 +80,6 @@ public class CapybaraSwimController : MonoBehaviour
 
         rb.velocity = moveDirection;
 
-        Debug.Log("🔽 rb.velocity.y = " + rb.velocity.y);
-
         // ✅ капибара всегда вертикальная (плавно выравнивается)
         Quaternion targetRotation = Quaternion.identity;
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationFixSpeed * Time.fixedDeltaTime);

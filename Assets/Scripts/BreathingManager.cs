@@ -67,7 +67,6 @@ public class BreathingManager : MonoBehaviour
     currentBreath -= breathDecreaseRate;
     currentBreath = Mathf.Clamp(currentBreath, 0f, maxBreath);
 
-     Debug.Log($"🫁 Уменьшаем дыхание: {Mathf.RoundToInt(currentBreath)}%");
 
     onBreathChanged?.Invoke(currentBreath);
 
@@ -88,6 +87,5 @@ public class BreathingManager : MonoBehaviour
 Debug.Log($"🫧 Пузырь восстановил дыхание на {amount}%. Текущее дыхание: {Mathf.RoundToInt(currentBreath)}%");
         onBreathChanged?.Invoke(currentBreath); // <<< вот это обновляет UI
 
-        Debug.Log("🎯 Вызван onBreathChanged");
     }
 }
