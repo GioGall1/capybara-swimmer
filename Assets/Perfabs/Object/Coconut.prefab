@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7119546650703709259}
   - component: {fileID: 5604896986570906197}
   - component: {fileID: 8095847446550879751}
+  - component: {fileID: 1591761204866176800}
   m_Layer: 0
   m_Name: Coconut
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 7825480876048925572}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -38.5429, y: -91.3871, z: 0}
+  m_LocalPosition: {x: -38.5429, y: -91.3871, z: -1}
   m_LocalScale: {x: 0.24341643, y: 0.24341643, z: 0.24341643}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -131,5 +132,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1870e815a9f6748e5a496e1564d2dd6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1591761204866176800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7825480876048925572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 589dcebfc00d640bba39a358ebbde634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
