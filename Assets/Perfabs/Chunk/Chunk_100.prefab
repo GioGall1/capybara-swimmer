@@ -92,6 +92,98 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chunkPrefab: {fileID: 8729848352699070170}
   spawnOffset: {x: 0, y: -100}
+--- !u!1 &753240961515632774
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3535650593686206731}
+  - component: {fileID: 1871889872304345570}
+  - component: {fileID: 558242710075942052}
+  m_Layer: 0
+  m_Name: MedusaSpawnZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3535650593686206731
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753240961515632774}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -43.7, y: -48.6, z: -0.31451088}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6136602474145028963}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1871889872304345570
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753240961515632774}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 4.1216993, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 52.608902, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &558242710075942052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753240961515632774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35f61b1309c504b99b97bf71d1b43224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  medusaPrefab: {fileID: 1896479453167718481, guid: 9adba28a7400741d5859dacfc64259f1, type: 3}
+  medusaSpawnZone: {fileID: 0}
 --- !u!1 &3165645028743994400
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,6 +361,98 @@ MonoBehaviour:
   coconutPrefab: {fileID: 7825480876048925572, guid: 40a080fef585944e3aa2250515cd5d76, type: 3}
   bubblePrefab: {fileID: 4106358901288012206, guid: 8cd9aee90982641a4a33b0f9db8846a3, type: 3}
   waterArea: {fileID: 7924148068937598948}
+--- !u!1 &7374918433730166607
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 429589693953179889}
+  - component: {fileID: 6881686599517238465}
+  - component: {fileID: 6633236835551748515}
+  m_Layer: 0
+  m_Name: MedusaSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &429589693953179889
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7374918433730166607}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -39.5, y: 48, z: -0.8150685}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6136602474145028963}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &6881686599517238465
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7374918433730166607}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.2070837, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 52.356483, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &6633236835551748515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7374918433730166607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35f61b1309c504b99b97bf71d1b43224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  medusaPrefab: {fileID: 1896479453167718481, guid: 9adba28a7400741d5859dacfc64259f1, type: 3}
+  medusaSpawnZone: {fileID: 3535650593686206731}
 --- !u!1 &8165282473725862585
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,7 +570,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.000000834465, y: 0.21680546}
+  m_Offset: {x: -0.055585504, y: 0.21680546}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -397,7 +581,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.4341316, y: 11.2647705}
+  m_Size: {x: 5.322959, y: 11.2647705}
   m_EdgeRadius: 0
 --- !u!1 &8428300583198979056
 GameObject:
@@ -518,6 +702,7 @@ Transform:
   - {fileID: 701937904738063850}
   - {fileID: 454637374183659617}
   - {fileID: 8474341056690446778}
+  - {fileID: 3535650593686206731}
   - {fileID: 8985212567296148303}
   - {fileID: 1850137162697593183}
   - {fileID: 3995824643446829738}
@@ -526,6 +711,7 @@ Transform:
   - {fileID: 100078814747058178}
   - {fileID: 5814059670374705063}
   - {fileID: 4209567350019584403}
+  - {fileID: 429589693953179889}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &-197406213390877318
@@ -815,6 +1001,14 @@ PrefabInstance:
     - target: {fileID: 4345160202903553239, guid: 36d4141696a5344b49e1107e0714cf9c, type: 3}
       propertyPath: m_Name
       value: SendX
+      objectReference: {fileID: 0}
+    - target: {fileID: 6802922526264776166, guid: 36d4141696a5344b49e1107e0714cf9c, type: 3}
+      propertyPath: m_Size.x
+      value: 5.345193
+      objectReference: {fileID: 0}
+    - target: {fileID: 6802922526264776166, guid: 36d4141696a5344b49e1107e0714cf9c, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.04447043
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

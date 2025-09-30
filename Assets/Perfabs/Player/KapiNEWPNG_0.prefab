@@ -396,6 +396,8 @@ MonoBehaviour:
   mouthPoint: {fileID: 7909310502360770581}
   bubbleSpawnIntervalMin: 1.5
   bubbleSpawnIntervalMax: 4
+  boostBubbleCount: 10
+  bubbleSpread: 0.5
 --- !u!70 &-8383059506614123164
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -428,8 +430,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 13.66, y: 10.24}
+  m_Offset: {x: -0.20330429, y: -0.7171154}
+  m_Size: {x: 5.326355, y: 9.272572}
   m_Direction: 0
 --- !u!1 &5450935179442424703
 GameObject:

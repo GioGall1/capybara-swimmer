@@ -9,9 +9,15 @@ public class MedusaController : MonoBehaviour
     public float destroyHeight = 30f;
 
     private Transform player;
+    private Rigidbody2D rb;
 
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
+        rb.gravityScale = 0; // медуза не тонет
+        rb.mass = 0.2f;      // легче капибары
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation; // чтобы не вертелась при ударе
+
         // Ищем игрока (капибару)
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null)
@@ -20,12 +26,12 @@ public class MedusaController : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {       // Двигаем строго вверх
-        transform.Translate(Vector2.up * speed * Time.deltaTime);
+    void FixedUpdate()
+    {
+        // Двигаем строго вверх через физику
+        rb.velocity = new Vector2(0, speed);
 
-        // Если есть игрок - уничтожаем объект, когда он далеко выше игрока 
+        // Уничтожаем, если далеко выше игрока
         if (player != null && transform.position.y > player.position.y + destroyHeight)
         {
             Destroy(gameObject);

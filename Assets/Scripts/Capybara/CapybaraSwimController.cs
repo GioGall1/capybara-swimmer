@@ -33,8 +33,10 @@ public class CapybaraSwimController : MonoBehaviour
         // originalVerticalSpeed = verticalSpeed;
         anim = GetComponent<Animator>();
         this.enabled = false; // ❌ по умолчанию управление выключено
-        
+
         originalVerticalSpeed = verticalSpeed; // 🧠 запоминаем изначальную скорость
+        
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         
     }
 
