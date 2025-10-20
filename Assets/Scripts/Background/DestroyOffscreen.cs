@@ -1,32 +1,35 @@
-using System.Collections;
-using System.Collections.Generic;
+// DestroyIfAbovePlayer.cs
 using UnityEngine;
 
 public class DestroyIfAbovePlayer : MonoBehaviour
 {
     public float offsetAbove = 30f;
-    private Transform player;
-    private float searchTimer = 0f;
-    private float maxSearchTime = 10f;
+    private static Transform player; // кэш на всех чанках
 
-void Update()
-{
-    if (player == null)
+    private void Awake()
     {
-        searchTimer += Time.deltaTime;
-        if (searchTimer < maxSearchTime)
+        // пробуем найти сразу
+        if (player == null)
         {
-            GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-            if (playerObj != null)
-                player = playerObj.transform;
+            var po = GameObject.FindGameObjectWithTag("Player");
+            if (po) player = po.transform;
+        }
+    }
+
+    private void Update()
+    {
+        // если вдруг потеряли ссылку — пытаемся снова (без таймера)
+        if (player == null)
+        {
+            var po = GameObject.FindGameObjectWithTag("Player");
+            if (po) player = po.transform;
+            return;
         }
 
-        return;
+        // если чанк стал выше игрока на offset — удаляем
+        if (transform.position.y > player.position.y + offsetAbove)
+        {
+            Destroy(gameObject);
+        }
     }
-
-    if (transform.position.y > player.position.y + offsetAbove)
-    {
-        Destroy(gameObject);
-    }
-}
 }
