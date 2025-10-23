@@ -125,22 +125,42 @@ public class CapybaraSwimController : MonoBehaviour
     }
     
     private void ApplyBoostBubbles()
-{
-    for (int i = 0; i < boostBubbleCount; i++)
     {
-        Vector3 offset = new Vector3(Random.Range(-bubbleSpread, bubbleSpread), 0f, 0f);
-        GameObject bubble = Instantiate(bubblePrefab, mouthPoint.position + offset, Quaternion.identity);
-        
-        Rigidbody2D rb = bubble.GetComponent<Rigidbody2D>();
-        if (rb != null)
+        for (int i = 0; i < boostBubbleCount; i++)
         {
-            float forceY = Random.Range(2f, 4f);
-            rb.velocity = new Vector2(0f, forceY); // всплытие
-        }
+            Vector3 offset = new Vector3(Random.Range(-bubbleSpread, bubbleSpread), 0f, 0f);
+            GameObject bubble = Instantiate(bubblePrefab, mouthPoint.position + offset, Quaternion.identity);
+            
+            Rigidbody2D rb = bubble.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                float forceY = Random.Range(2f, 4f);
+                rb.velocity = new Vector2(0f, forceY); // всплытие
+            }
 
-        Destroy(bubble, 2f); // пузырь исчезает через 2 секунды
+            Destroy(bubble, 2f); // пузырь исчезает через 2 секунды
+        }
     }
-}
+
+    // 🫧 Публичный хук для внешних вызовов (медуза/враги)
+    public void SpawnHitBubbles(int count = -1)
+    {
+        int n = (count <= 0) ? boostBubbleCount : count;
+        for (int i = 0; i < n; i++)
+        {
+            Vector3 offset = new Vector3(Random.Range(-bubbleSpread, bubbleSpread), 0f, 0f);
+            GameObject bubble = Instantiate(bubblePrefab, mouthPoint.position + offset, Quaternion.identity);
+
+            Rigidbody2D rb = bubble.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                float forceY = Random.Range(2f, 4f);
+                rb.velocity = new Vector2(0f, forceY); // всплытие
+            }
+
+            Destroy(bubble, 2f);
+        }
+    }
 
 private IEnumerator BoostVerticalSpeed()
     {

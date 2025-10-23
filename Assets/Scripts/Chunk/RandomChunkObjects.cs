@@ -12,8 +12,8 @@ public class RandomChunkObjects : MonoBehaviour
     {
         ClearPreviousObjects();
 
-        TrySpawn(coconutPrefab, 0, 3);  // от 0 до 3 кокосов
-        TrySpawnOnce(bubblePrefab, 0.10f);  // 10% шанс и только один
+        TrySpawn(coconutPrefab, 0, 6);  // от 0 до 6 кокосов
+        TrySpawnOnce(bubblePrefab, 0.50f);  // 50% шанс и только один
     }
 
     void TrySpawn(GameObject prefab, int minAmount, int maxAmount)

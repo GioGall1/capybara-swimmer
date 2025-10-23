@@ -78,14 +78,26 @@ public class BreathingManager : MonoBehaviour
 
     public void RefillBreath(float amount)
     {
-         Debug.Log($"До: {currentBreath}");
+        Debug.Log($"До: {currentBreath}");
 
         currentBreath += amount;
         currentBreath = Mathf.Clamp(currentBreath, 0f, maxBreath);
 
         Debug.Log($"После: {currentBreath}");
-Debug.Log($"🫧 Пузырь восстановил дыхание на {amount}%. Текущее дыхание: {Mathf.RoundToInt(currentBreath)}%");
+        Debug.Log($"🫧 Пузырь восстановил дыхание на {amount}%. Текущее дыхание: {Mathf.RoundToInt(currentBreath)}%");
         onBreathChanged?.Invoke(currentBreath); // <<< вот это обновляет UI
 
     }
+    
+    public void ChangeBreath(float delta)
+{
+    currentBreath += delta; // delta может быть отрицательным (например, -10)
+    currentBreath = Mathf.Clamp(currentBreath, 0f, maxBreath);
+    onBreathChanged?.Invoke(currentBreath);
+
+    if (currentBreath <= 0f)
+    {
+        Debug.Log("❗ Капибара задыхается!");
+    }
+}
 }

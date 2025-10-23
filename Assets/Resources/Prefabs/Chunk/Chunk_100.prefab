@@ -93,6 +93,8 @@ MonoBehaviour:
   chunkPrefab: {fileID: 0}
   useResources: 1
   resourcesPath: Prefabs/Chunk/Chunk_100
+  resourcePaths: []
+  avoidImmediateRepeat: 1
   spawnOffset: {x: 0, y: -100}
   spawnNextOnStart: 0
   immediateCleanupMargin: 5
@@ -106,7 +108,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3535650593686206731}
   - component: {fileID: 1871889872304345570}
-  - component: {fileID: 558242710075942052}
   m_Layer: 0
   m_Name: MedusaSpawnZone
   m_TagString: Untagged
@@ -174,20 +175,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 52.608902, y: 1}
   m_EdgeRadius: 0
---- !u!114 &558242710075942052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 753240961515632774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35f61b1309c504b99b97bf71d1b43224, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  medusaPrefab: {fileID: 1896479453167718481, guid: 9adba28a7400741d5859dacfc64259f1, type: 3}
-  medusaSpawnZone: {fileID: 0}
 --- !u!1 &3165645028743994400
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,7 +489,7 @@ Transform:
   m_GameObject: {fileID: 7374918433730166607}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -39.5, y: 48, z: -0.8150685}
+  m_LocalPosition: {x: -39.7, y: 38.9, z: -0.8150685}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -567,6 +554,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   medusaPrefab: {fileID: 1896479453167718481, guid: 9adba28a7400741d5859dacfc64259f1, type: 3}
   medusaSpawnZone: {fileID: 3535650593686206731}
+  minCount: 1
+  maxCount: 5
+  cooldown: 0
+  spawnOnce: 1
+  minSeparation: 0.75
+  yOffset: 0.05
+  staggerDelay: 1
 --- !u!1 &7825725372584563114
 GameObject:
   m_ObjectHideFlags: 0
@@ -625,7 +619,7 @@ Transform:
   m_GameObject: {fileID: 8165282473725862585}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -144.8812, y: -124.8208, z: 0}
+  m_LocalPosition: {x: -144.8812, y: -124.8208, z: -3}
   m_LocalScale: {x: 22.737217, y: 37.80062, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -908,7 +902,7 @@ Transform:
   m_GameObject: {fileID: 8740850343192739832}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -45.32528, y: 28.845932, z: -2}
+  m_LocalPosition: {x: -45.32528, y: 28.845932, z: -3}
   m_LocalScale: {x: 0.24071252, y: 0.24071251, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -946,7 +940,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2558794213456976138, guid: 36d4141696a5344b49e1107e0714cf9c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 2558794213456976138, guid: 36d4141696a5344b49e1107e0714cf9c, type: 3}
       propertyPath: m_LocalRotation.w
