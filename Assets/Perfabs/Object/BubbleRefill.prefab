@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 8862524862954844640}
   - component: {fileID: 3402302620837701859}
   - component: {fileID: 1659239347601579220}
+  - component: {fileID: 626353478340356075}
+  - component: {fileID: -73494780350015246}
   m_Layer: 0
   m_Name: BubbleRefill
   m_TagString: Untagged
@@ -134,3 +136,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   refillAmount: 20
+  riseSpeed: 0.5
+--- !u!114 &626353478340356075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4106358901288012206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 589dcebfc00d640bba39a358ebbde634, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-73494780350015246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4106358901288012206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49828439e0822450f8ae23e416d66a2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowColor: {r: 1, g: 1, b: 1, a: 1}
+  glowIntensity: 0.5
+  glowSpeed: 2

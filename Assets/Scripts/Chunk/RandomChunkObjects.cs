@@ -12,8 +12,8 @@ public class RandomChunkObjects : MonoBehaviour
     {
         ClearPreviousObjects();
 
-        TrySpawn(coconutPrefab, 0, 6);  // от 0 до 6 кокосов
-        TrySpawnOnce(bubblePrefab, 0.50f);  // 50% шанс и только один
+        TrySpawn(coconutPrefab, 1, 6);  // от 0 до 6 кокосов
+       TrySpawnMultiple(bubblePrefab, 0, 3, 0.5f);  // от 0 до 3 пузырей, каждый с шансом 50%
     }
 
     void TrySpawn(GameObject prefab, int minAmount, int maxAmount)
@@ -33,18 +33,25 @@ public class RandomChunkObjects : MonoBehaviour
         }
     }
 
-    void TrySpawnOnce(GameObject prefab, float chance)
+    void TrySpawnMultiple(GameObject prefab, int minAmount, int maxAmount, float chancePerSpawn)
+{
+    if (waterArea != null)
     {
-        if (Random.value < chance && waterArea != null)
-        {
-            Bounds bounds = waterArea.bounds;
+        int count = Random.Range(minAmount, maxAmount + 1);
+        Bounds bounds = waterArea.bounds;
 
-            Vector3 basePos = GetRandomPointInBounds(bounds);
-            Vector3 randomPos = new Vector3(basePos.x, basePos.y, prefab.transform.position.z);
-            GameObject obj = Instantiate(prefab, randomPos, Quaternion.identity);
-            obj.transform.SetParent(transform);
+        for (int i = 0; i < count; i++)
+        {
+            if (Random.value < chancePerSpawn)
+            {
+                Vector3 basePos = GetRandomPointInBounds(bounds);
+                Vector3 randomPos = new Vector3(basePos.x, basePos.y, prefab.transform.position.z);
+                GameObject obj = Instantiate(prefab, randomPos, Quaternion.identity);
+                obj.transform.SetParent(transform);
+            }
         }
     }
+}
 
     void ClearPreviousObjects()
     {

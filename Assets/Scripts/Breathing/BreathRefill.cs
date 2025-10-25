@@ -5,7 +5,7 @@ public class BubbleRefill : MonoBehaviour
     public float refillAmount = 20f;
 
     [Header("Всплытие пузыря")]
-    public float riseSpeed = 0.5f; // скорость всплытия вверх
+    public float riseSpeed = 1f; // скорость всплытия вверх
 
     private void Update()
     {
