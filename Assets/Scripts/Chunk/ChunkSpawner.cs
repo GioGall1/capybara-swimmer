@@ -160,6 +160,18 @@ public class ChunkSpawner : MonoBehaviour
             zone.usePerChunkRandom = true;
             zone.ForceSpawn(chunkId);
         }
+
+        // Спавним препятствия
+        var obstacleZones = newChunk.GetComponentsInChildren<ObstacleLineZoneTrigger>(true);
+        foreach (var zone in obstacleZones)
+        {
+            if (!zone) continue;
+            zone.spawnOnPlayerEnter = false;
+            zone.spawnOnlyOnce = true;
+            zone.deterministic = false;
+            zone.usePerChunkRandom = true;
+            zone.ForceSpawn(chunkId);
+        }
     }
 
     private void CleanupOldChunks(float currentChunkY)
