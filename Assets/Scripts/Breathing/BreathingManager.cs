@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using System.Collections;
 
 public class BreathingManager : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class BreathingManager : MonoBehaviour
 
 
     private bool isUnderwater = false;
+    private bool deathStarted = false;
 
     void Start()
     {
@@ -73,6 +75,7 @@ public class BreathingManager : MonoBehaviour
     if (currentBreath <= 0f)
     {
         Debug.Log("❗ Капибара задыхается!");
+        StartCoroutine(HandleDeathSequence());
     }
     }
 
@@ -97,7 +100,28 @@ public class BreathingManager : MonoBehaviour
 
     if (currentBreath <= 0f)
     {
-        Debug.Log("❗ Капибара задыхается!");
+            Debug.Log("❗ Капибара задыхается!");
+            StartCoroutine(HandleDeathSequence());
     }
 }
+
+    private IEnumerator HandleDeathSequence()
+    {
+        if (deathStarted) yield break;
+        deathStarted = true;
+
+        StopBreathing();
+
+        var capy = FindObjectOfType<CapybaraDeathController>();
+        if (capy != null)
+            capy.PlayDeathPose();
+
+        var swim = FindObjectOfType<CapybaraSwimController>();
+        if (swim != null)
+            swim.enabled = false;
+
+        yield return new WaitForSeconds(2f);
+
+        GameManager.Instance.GameOver();
+    }
 }

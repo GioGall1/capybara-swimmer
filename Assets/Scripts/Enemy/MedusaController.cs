@@ -52,6 +52,7 @@ public class MedusaController : MonoBehaviour
         if (!collision.collider.CompareTag("Player")) return;
         TryApplyBreathDamage();
     }
+    
 
     private void TryApplyBreathDamage()
     {
